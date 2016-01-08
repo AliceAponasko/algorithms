@@ -1,2 +1,2 @@
-# algorithms
-My tiny attempts to be better at algorithms 
+# Algorithms
+Random attempts to be better at algorithms 
