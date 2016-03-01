@@ -69,7 +69,8 @@ func evenCount(string: String) -> Int {
 let palindromeN2Odd = countPalindromesN2("ababa")
 let palindromeN2Even = countPalindromesN2("abbaab")
 
-
+// Hash
+func hash(indLeft: Int, indRight: Int) -> 
 
 
 
