@@ -1,25 +1,28 @@
 import UIKit
 
 // O(N^3)
-func countPalindromesN3(string: String) -> Int {
+func countPalindromesN3(_ string: String) -> Int {
     var palindromesCount = 0
-    for var leftBorder = 0; leftBorder < string.characters.count; ++leftBorder {
-        for var rightBorder = leftBorder + 1; rightBorder < string.characters.count; ++rightBorder {
+    for leftBorder in 0..<string.count {
+        for rightBorder in (leftBorder+1)..<string.count {
             if isPalidrom(string, leftBorder: leftBorder, rightBorder: rightBorder) {
-                palindromesCount++
+                palindromesCount += 1
             }
         }
     }
     return palindromesCount
 }
-func isPalidrom(string: String, var leftBorder: Int, var rightBorder: Int) -> Bool {
+func isPalidrom(_ string: String, leftBorder: Int, rightBorder: Int) -> Bool {
+    var left = leftBorder
+    var right = rightBorder
+
     let startIndex = string.startIndex
-    while leftBorder <= rightBorder {
-        if string[startIndex.advancedBy(leftBorder)] != string[startIndex.advancedBy(rightBorder)] {
+    while left <= right {
+        if string[string.index(startIndex, offsetBy: left)] != string[string.index(startIndex, offsetBy: right)] {
             return false
         }
-        ++leftBorder
-        --rightBorder
+        left += 1
+        right -= 1
     }
     return true
 }
@@ -27,50 +30,44 @@ func isPalidrom(string: String, var leftBorder: Int, var rightBorder: Int) -> Bo
 let palindromesN3 = countPalindromesN3("ababa")
 
 // O(N^2)
-func countPalindromesN2(string: String) -> Int {
-    if string.characters.count % 2 == 0 {
+func countPalindromesN2(_ string: String) -> Int {
+    if string.count % 2 == 0 {
         return evenCount(string)
     } else {
         return oddCount(string)
     }
 }
-func oddCount(string: String) -> Int {
+func oddCount(_ string: String) -> Int {
     var palindromesCount = 0
     let startIndex = string.startIndex
-    
-    for var middle = 0; middle < string.characters.count; ++middle {
+
+    for middle in 0..<string.count {
         var leftBorder = middle - 1, rightBorder = middle + 1
-        while leftBorder >= 0 && rightBorder < string.characters.count &&
-            (string[startIndex.advancedBy(leftBorder)] == string[startIndex.advancedBy(rightBorder)]) {
-                ++palindromesCount
-                --leftBorder
-                ++rightBorder
+        while leftBorder >= 0 && rightBorder < string.count &&
+            (string[string.index(startIndex, offsetBy: leftBorder)] == string[string.index(startIndex, offsetBy: rightBorder)]) {
+                palindromesCount += 1
+                leftBorder -= 1
+                rightBorder += 1
         }
     }
-    
+
     return palindromesCount
 }
-func evenCount(string: String) -> Int {
+func evenCount(_ string: String) -> Int {
     var palindromesCount = 0
     let startIndex = string.startIndex
-    
-    for var middle = 0; middle < string.characters.count; ++middle {
+
+    for middle in 0..<string.count {
         var leftBorder = middle, rightBorder = middle + 1
-        while leftBorder >= 0 && rightBorder < string.characters.count &&
-            (string[startIndex.advancedBy(leftBorder)] == string[startIndex.advancedBy(rightBorder)]) {
-                ++palindromesCount
-                --leftBorder
-                ++rightBorder
+        while leftBorder >= 0 && rightBorder < string.count &&
+            (string[string.index(startIndex, offsetBy: leftBorder)] == string[string.index(startIndex, offsetBy: rightBorder)]) {
+                palindromesCount += 1
+                leftBorder -= 1
+                rightBorder += 1
         }
     }
-    
+
     return palindromesCount
 }
 let palindromeN2Odd = countPalindromesN2("ababa")
 let palindromeN2Even = countPalindromesN2("abbaab")
-
-// Hash
-func hash(indLeft: Int, indRight: Int) -> 
-
-
-

@@ -1,6 +1,6 @@
 import UIKit
 
-enum CollectionError: ErrorType {
+enum CollectionError: Error {
     case StackIsEmpty
     case QueueIsEmpty
 }
@@ -16,12 +16,12 @@ class Stack {
         return items.count == 0
     }
     
-    func push(item: Int) {
+    func push(_ item: Int) {
         items.append(item)
     }
     
     func pop() throws -> Int {
-        if (isEmpty()) {
+        if isEmpty() {
             throw CollectionError.StackIsEmpty
         }
         return items.removeLast()
@@ -39,12 +39,12 @@ class Queue {
         return items.count == 0
     }
     
-    func enqueue(item: Int) {
+    func enqueue(_ item: Int) {
         items.append(item)
     }
     
     func dequeue() throws -> Int {
-        if (isEmpty()) {
+        if isEmpty() {
             throw CollectionError.QueueIsEmpty
         }
         return items.removeFirst()
@@ -67,51 +67,48 @@ class LinkedList {
         var size = 0
         var current = first
         
-        while (current != nil) {
-            size++
+        while current != nil {
+            size += 1
             current = current?.next
         }
         
         return size
     }
     
-    func add(item: Int) {
-        if first == nil {
-            first = Node.init(item: item)
+    func add(_ item: Int) {
+        guard var current = first else {
+            first = Node(item: item)
             return
         }
         
-        var current = first!
-        
-        while (current.next != nil) {
-            current = current.next!
+        while let next = current.next {
+            current = next
         }
         
-        current.next = Node.init(item: item)
+        current.next = Node(item: item)
     }
     
     func removeLast() throws -> Int {
-        if first == nil {
+        guard var previous = first else {
             throw CollectionError.StackIsEmpty
         }
+
+        var current = previous.next
+        var result: Int = previous.item
         
-        var previous = first
-        var current = first!.next
-        var result: Int = first!.item
-        
-        if (current == nil) {
+        if current == nil {
             first = nil
             return result
         }
         
-        while (current != nil) {
-            if let next = current!.next {
-                previous = current
+        while current != nil {
+            if let next = current?.next {
+                previous = current!
                 current = next
             } else {
                 result = current!.item
                 current = nil
-                previous?.next = nil
+                previous.next = nil
             }
         }
         
@@ -134,12 +131,12 @@ class StackAsLinkedList {
         return linkedList.isEmpty()
     }
     
-    func push(item: Int) {
+    func push(_ item: Int) {
         linkedList.add(item)
     }
     
     func pop() throws -> Int {
-        if (isEmpty()) {
+        if isEmpty() {
             throw CollectionError.StackIsEmpty
         }
         return try linkedList.removeLast()
@@ -158,17 +155,17 @@ class QueueAsTwoStacks {
         return stack1.size() == 0 && stack2.size() == 0
     }
     
-    func enqueue(item: Int) {
+    func enqueue(_ item: Int) {
         stack1.push(item)
     }
     
     func dequeue() throws -> Int {
-        if (stack2.isEmpty()) {
-            if (stack1.isEmpty()) {
+        if stack2.isEmpty() {
+            if stack1.isEmpty() {
                 throw CollectionError.QueueIsEmpty
             }
             
-            while (!stack1.isEmpty()) {
+            while !stack1.isEmpty() {
                 let item = try stack1.pop()
                 stack2.push(item)
             }
@@ -206,7 +203,7 @@ public class CollectionTests {
         assert(!stack.isEmpty())
         assert(stack.size() == 10)
         
-        for var i = 9; i > 6; i-- {
+        for i in (7..<10).reversed() {
             do {
                 let item = try stack.pop()
                 assert(item == i)
@@ -259,7 +256,7 @@ public class CollectionTests {
         assert(!stack.isEmpty())
         assert(stack.size() == 10)
         
-        for var i = 9; i > 6; i-- {
+        for i in (7..<10).reversed() {
             do {
                 let item = try stack.pop()
                 assert(item == i)

@@ -2,8 +2,8 @@
 
 import UIKit
 
-
 // MARK: - 1
+
 func sumMultiplesOf3and5(
     forNumber number: Int) -> Int {
 
@@ -22,7 +22,7 @@ print(sumMultiplesOf3and5(forNumber: 1000))
 
 // MARK: - 2
 
-func evenFibonacciNumbers(limit: Int) -> Int {
+func evenFibonacciNumbers(_ limit: Int) -> Int {
 
     if limit < 2 {
         return 0
@@ -60,7 +60,7 @@ print(evenFibonacciNumbers(4_000_000))
 
 // MARK: - 3
 
-func largestPrimeFactor(number: Int) -> Int {
+func largestPrimeFactor(_ number: Int) -> Int {
     var startingNumber = number
     var divisor = 2
     var maxDivisor = 1
@@ -84,7 +84,7 @@ print(largestPrimeFactor(600851475143))
 
 // unsuccessful
 private func findPrimes(number: Int) -> [Int] {
-    var allValues = [Bool](count: number + 1, repeatedValue: true)
+    var allValues = [Bool](repeating: true, count: number + 1)
 
     allValues[0] = false
     allValues[1] = false

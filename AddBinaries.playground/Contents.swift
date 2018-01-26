@@ -1,13 +1,13 @@
 import UIKit
 
-func sum(one: String, two: String) -> String {
-    let oneArray = Array(one.characters)
-    let twoArray = Array(two.characters)
+func sum(_ one: String, _ two: String) -> String {
+    let oneArray = Array(one)
+    let twoArray = Array(two)
     
     var result = ""
     var carriedNumber = false
     
-    for var i = oneArray.count - 1; i >= 0; i-- {
+    for i in (0..<oneArray.count - 1).reversed() {
         if oneArray[i] == "0" && twoArray[i] == "0" {
             result += carriedNumber ? "1" : "0"
             carriedNumber = false
@@ -19,14 +19,14 @@ func sum(one: String, two: String) -> String {
         }
     }
     
-    if result.characters.last == "0" && carriedNumber {
-        let range = Range(start: result.endIndex.advancedBy(-1), end: result.endIndex)
-        result.stringByReplacingCharactersInRange(range, withString: "1")
+    if result.last == "0" && carriedNumber {
+        let range = result.index(result.endIndex, offsetBy: -1)..<result.endIndex
+        result.replacingCharacters(in: range, with: "1")
     }
     
-    return String(result.characters.reverse())
+    return String(result.reversed())
 }
 
-sum("100101", two: "001101") // 110010
-sum("0010", two: "0010") // 0100
-sum("111111", two: "111111") // 1111110
+sum("100101", "001101") // 110010
+sum("0010", "0010") // 0100
+sum("111111", "111111") // 1111110
