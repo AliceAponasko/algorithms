@@ -10,10 +10,10 @@ import UIKit
 
 class LightGrid {
 
-    private var lightColumn = Set<Int>()
-    private var lightRow = Set<Int>()
-    private var lightDiagDown = Set<Int>()
-    private var lightDiagUp = Set<Int>()
+    private var lightedColumn = Set<Int>()
+    private var lightedRow = Set<Int>()
+    private var lightedDiagonalDown = Set<Int>()
+    private var lightedDiagonalUp = Set<Int>()
 
     private func diagonalUpId(col: Int, row: Int) -> Int {
         return row + col
@@ -24,17 +24,17 @@ class LightGrid {
     }
 
     func placeLight(col: Int, row: Int) {
-        lightRow.insert(row)
-        lightColumn.insert(col)
-        lightDiagUp.insert(diagonalUpId(col: col, row: row))
-        lightDiagDown.insert(diagonalDownId(col: col, row: row))
+        lightedRow.insert(row)
+        lightedColumn.insert(col)
+        lightedDiagonalUp.insert(diagonalUpId(col: col, row: row))
+        lightedDiagonalDown.insert(diagonalDownId(col: col, row: row))
     }
 
     func checkLight(_ col: Int, _ row: Int) -> Bool {
-        return lightRow.contains(row) ||
-            lightColumn.contains(col) ||
-            lightDiagUp.contains(diagonalUpId(col: col, row: row)) ||
-            lightDiagDown.contains(diagonalDownId(col: col, row: row))
+        return lightedRow.contains(row) ||
+            lightedColumn.contains(col) ||
+            lightedDiagonalUp.contains(diagonalUpId(col: col, row: row)) ||
+            lightedDiagonalDown.contains(diagonalDownId(col: col, row: row))
     }
 }
 
@@ -61,8 +61,8 @@ extension LightGrid: CustomStringConvertible {
     public var description: String {
         var result = ""
 
-        for r in 0..<maxValue(in: lightRow)+1 {
-            for c in 0..<maxValue(in: lightColumn)+1 {
+        for r in 0..<maxValue(in: lightedRow)+1 {
+            for c in 0..<maxValue(in: lightedColumn)+1 {
                 if checkLight(c, r) {
                     result.append("X ")
                 } else {

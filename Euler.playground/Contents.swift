@@ -4,9 +4,7 @@ import UIKit
 
 // MARK: - 1
 
-func sumMultiplesOf3and5(
-    forNumber number: Int) -> Int {
-
+func sumMultiplesOf3and5(forNumber number: Int) -> Int {
     var sum = 0
 
     for i in 0...(number - 1) {
@@ -23,7 +21,6 @@ print(sumMultiplesOf3and5(forNumber: 1000))
 // MARK: - 2
 
 func evenFibonacciNumbers(_ limit: Int) -> Int {
-
     if limit < 2 {
         return 0
     }
@@ -32,17 +29,12 @@ func evenFibonacciNumbers(_ limit: Int) -> Int {
         return 2
     }
 
-    var fibonacciSequence = [Int]()
-    fibonacciSequence.append(1)
-    fibonacciSequence.append(2)
+    var fibonacciSequence = [1, 2]
 
     for i in 1...limit {
         let nextNumber = fibonacciSequence[i] + fibonacciSequence[i - 1]
-        if nextNumber >= limit {
-            break
-        } else {
-            fibonacciSequence.append(nextNumber)
-        }
+        if nextNumber >= limit { break }
+        fibonacciSequence.append(nextNumber)
     }
 
     var sum = 0

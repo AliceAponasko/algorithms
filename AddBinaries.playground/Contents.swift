@@ -1,17 +1,17 @@
 import UIKit
 
-func sum(_ one: String, _ two: String) -> String {
-    let oneArray = Array(one)
-    let twoArray = Array(two)
+func sum(_ firstNumber: String, _ secondNumber: String) -> String {
+    let firstArray = Array(firstNumber)
+    let secondArray = Array(secondNumber)
     
     var result = ""
     var carriedNumber = false
     
-    for i in (0..<oneArray.count - 1).reversed() {
-        if oneArray[i] == "0" && twoArray[i] == "0" {
+    for i in (0..<firstArray.count - 1).reversed() {
+        if firstArray[i] == "0" && secondArray[i] == "0" {
             result += carriedNumber ? "1" : "0"
             carriedNumber = false
-        } else if oneArray[i] == "1" && twoArray[i] == "1" {
+        } else if firstArray[i] == "1" && secondArray[i] == "1" {
             result += carriedNumber ? "1" : "0"
             carriedNumber = true
         } else {

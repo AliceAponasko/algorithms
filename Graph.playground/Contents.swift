@@ -55,15 +55,15 @@ enum Visit {
 }
 
 class Graph {
-    var adjacencyList: [Vertex: [Edge]] = [:]
+    var map: [Vertex: [Edge]] = [:]
 
     init() {}
 
     func createVertex(_ data: String) -> Vertex {
         let vertex = Vertex(data: data)
 
-        if !adjacencyList.keys.contains(vertex) {
-            adjacencyList[vertex] = []
+        if !map.keys.contains(vertex) {
+            map[vertex] = []
         }
 
         return vertex
@@ -75,22 +75,18 @@ class Graph {
             addDirectedEdge(from: source, to: destination, weight: weight)
 
         case .undirected:
-            addUndirectedEdge(from: source, to: destination, weight: weight)
+            addDirectedEdge(from: source, to: destination, weight: weight)
+            addDirectedEdge(from: destination, to: source, weight: weight)
         }
     }
 
     private func addDirectedEdge(from source: Vertex, to destination: Vertex, weight: Int?) {
         let edge = Edge(source: source, destination: destination, weight: weight)
-        adjacencyList[source]?.append(edge)
-    }
-
-    private func addUndirectedEdge(from source: Vertex, to destination: Vertex, weight: Int?) {
-        addDirectedEdge(from: source, to: destination, weight: weight)
-        addDirectedEdge(from: destination, to: source, weight: weight)
+        map[source]?.append(edge)
     }
 
     func weight(from source: Vertex, to destination: Vertex) -> Int? {
-        guard let edges = adjacencyList[source] else {
+        guard let edges = map[source] else {
             return nil
         }
 
@@ -104,7 +100,7 @@ class Graph {
     }
 
     func edges(from source: Vertex) -> [Edge]? {
-        return adjacencyList[source]
+        return map[source]
     }
 
     func breadthFirstSearch(from source: Vertex, to destination: Vertex) -> [Edge]? {
@@ -122,11 +118,11 @@ class Graph {
 
                 while let visit = visits[vertex],
                     case .edge(let edge) = visit {
-
                         route = [edge] + route
                         vertex = edge.source
 
                 }
+
                 return route
             }
 
@@ -175,8 +171,9 @@ extension Graph: CustomStringConvertible {
     public var description: String {
         var result = ""
 
-        for (vertex, edges) in adjacencyList {
+        for (vertex, edges) in map {
             var edgeString = ""
+
             for (index, edge) in edges.enumerated() {
                 if index != edges.count - 1 {
                     edgeString.append("\(edge.destination), ")
@@ -184,8 +181,10 @@ extension Graph: CustomStringConvertible {
                     edgeString.append("\(edge.destination)")
                 }
             }
+
             result.append("\(vertex) ---> [ \(edgeString) ] \n ")
         }
+
         return result
     }
 }
@@ -223,4 +222,3 @@ if let edges = graph.breadthFirstSearch(from: sanFrancisco, to: seattle) {
 }
 
 print(graph.depthFirstSearch(from: hongKong, to: sanFrancisco))
-

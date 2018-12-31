@@ -1,8 +1,7 @@
 import UIKit
 
 enum CollectionError: Error {
-    case StackIsEmpty
-    case QueueIsEmpty
+    case isEmpty
 }
 
 class Stack {
@@ -22,7 +21,7 @@ class Stack {
     
     func pop() throws -> Int {
         if isEmpty() {
-            throw CollectionError.StackIsEmpty
+            throw CollectionError.isEmpty
         }
         return items.removeLast()
     }
@@ -45,7 +44,7 @@ class Queue {
     
     func dequeue() throws -> Int {
         if isEmpty() {
-            throw CollectionError.QueueIsEmpty
+            throw CollectionError.isEmpty
         }
         return items.removeFirst()
     }
@@ -90,7 +89,7 @@ class LinkedList {
     
     func removeLast() throws -> Int {
         guard var previous = first else {
-            throw CollectionError.StackIsEmpty
+            throw CollectionError.isEmpty
         }
 
         var current = previous.next
@@ -137,7 +136,7 @@ class StackAsLinkedList {
     
     func pop() throws -> Int {
         if isEmpty() {
-            throw CollectionError.StackIsEmpty
+            throw CollectionError.isEmpty
         }
         return try linkedList.removeLast()
     }
@@ -162,7 +161,7 @@ class QueueAsTwoStacks {
     func dequeue() throws -> Int {
         if stack2.isEmpty() {
             if stack1.isEmpty() {
-                throw CollectionError.QueueIsEmpty
+                throw CollectionError.isEmpty
             }
             
             while !stack1.isEmpty() {
@@ -292,4 +291,4 @@ public class CollectionTests {
     }
 }
 
-CollectionTests.init()
+CollectionTests()

@@ -69,5 +69,6 @@ func evenCount(_ string: String) -> Int {
 
     return palindromesCount
 }
+
 let palindromeN2Odd = countPalindromesN2("ababa")
 let palindromeN2Even = countPalindromesN2("abbaab")
