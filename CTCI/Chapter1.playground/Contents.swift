@@ -67,10 +67,38 @@ extension String {
     }
 }
 
-print("abc".compress())
-print("abcabc".compress())
-print("aabc".compress())
-print("aaabc".compress())
-print("aaabbc".compress())
-print("aaabbcc".compress())
-print("aaabbccaaabbcc".compress())
+//print("abc".compress())
+//print("abcabc".compress())
+//print("aabc".compress())
+//print("aaabc".compress())
+//print("aaabbc".compress())
+//print("aaabbcc".compress())
+//print("aaabbccaaabbcc".compress())
+
+// 1.6
+
+extension Array where Element == Array<Int> {
+    mutating func rotateRight() {
+        for layer in 0..<count / 2 {
+            let first = layer
+            let last = count - 1 - layer
+            for i in first..<last {
+                let offset = i - first
+                let top = self[first][i]
+                self[first][i] = self[last - offset][first]
+                self[last - offset][first] = self[last][last - offset]
+                self[last][last - offset] = self[i][last]
+                self[i][last] = top
+            }
+        }
+    }
+}
+
+var array = [[1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4], [1, 2, 3, 4]]
+array.rotateRight() // [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3], [4, 4, 4, 4]]
+print(array)
+
+
+
+
+
