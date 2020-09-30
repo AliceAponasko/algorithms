@@ -56,6 +56,19 @@ class LinkedList {
         current.next = Node(item: item)
     }
 
+    func add(_ node: Node) {
+        guard var current = first else {
+            first = node
+            return
+        }
+
+        while let next = current.next {
+            current = next
+        }
+
+        current.next = node
+    }
+
     func addMultiple(_ items: Int...) {
         guard let firstItem = items.first else {
             return
@@ -73,7 +86,7 @@ class LinkedList {
             current = next
         }
 
-        items.forEach {
+        items.suffix(from: 1).forEach {
             current.next = Node(item: $0)
             if let next = current.next {
                 current = next
@@ -98,6 +111,12 @@ class LinkedList {
             } else {
                 current = next
             }
+        }
+    }
+
+    func removeAll() {
+        while first != nil {
+            try? removeLast()
         }
     }
 
@@ -152,7 +171,56 @@ extension LinkedList {
     }
 }
 
+//let linkedList = LinkedList()
+//linkedList.addMultiple(1, 2, 1, 3, 2, 4, 4, 1)
+//linkedList.removeDuplicates()
+//print(linkedList.debugDescription)
+
+// 2.2
+
+extension LinkedList {
+    func elementFromLast(at lastIndex: Int) -> Node? {
+        var result = first
+
+        for _ in 0..<size - lastIndex {
+            result = result?.next
+        }
+
+        return result
+    }
+}
+
+//let linkedList = LinkedList()
+//linkedList.addMultiple(1, 2, 3, 4, 5, 6, 7, 8)
+//print(linkedList.elementFromLast(at: 3)?.item ?? "error")
+
+// 2.4
+
+extension LinkedList {
+    func partition(around value: Int) {
+        var current = first
+        var lessThanOrEqual = [Node]()
+        var after = [Node]()
+
+        while let comparable = current {
+            if comparable.item < value {
+                lessThanOrEqual.insert(comparable, at: 0)
+            } else if comparable.item == value {
+                lessThanOrEqual.append(comparable)
+            } else {
+                after.append(comparable)
+            }
+
+            current = comparable.next
+        }
+
+        removeAll()
+        lessThanOrEqual.forEach { add($0) }
+        after.forEach { add($0) }
+    }
+}
+
 let linkedList = LinkedList()
-linkedList.addMultiple(1, 2, 1, 3, 2, 4, 4, 1)
-linkedList.removeDuplicates()
+linkedList.addMultiple(8, 9, 2, 3, 5, 8, 1, 3, 2)
+linkedList.partition(around: 3)
 print(linkedList.debugDescription)
