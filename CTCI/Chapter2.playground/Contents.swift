@@ -220,7 +220,117 @@ extension LinkedList {
     }
 }
 
-let linkedList = LinkedList()
-linkedList.addMultiple(8, 9, 2, 3, 5, 8, 1, 3, 2)
-linkedList.partition(around: 3)
-print(linkedList.debugDescription)
+//let linkedList = LinkedList()
+//linkedList.addMultiple(8, 9, 2, 3, 5, 8, 1, 3, 2)
+//linkedList.partition(around: 3)
+//print(linkedList.debugDescription)
+
+// 2.5
+
+extension LinkedList {
+    static func addBackwardNumbers(_ first: LinkedList, _ second: LinkedList) -> LinkedList {
+        let result = first.backwardNumber() + second.backwardNumber()
+        let resultList = LinkedList()
+
+        var divider = 10
+        var node = result % divider
+
+        while node > 0 {
+            resultList.add(node)
+            divider *= 10
+            node = result % divider / (divider / 10)
+        }
+
+        return resultList
+    }
+
+    private func backwardNumber() -> Int {
+        var multiplier = 1
+        var result = 0
+        var current = first
+
+        while current != nil {
+            result += (current?.item ?? 0) * multiplier
+            multiplier *= 10
+            current = current?.next
+        }
+
+        return result
+    }
+}
+
+let a1 = LinkedList()
+a1.addMultiple(3, 2, 1)
+let b1 = LinkedList()
+b1.addMultiple(6, 5, 4)
+// 123 + 456 = 579 -> 9, 7, 5
+print(LinkedList.addBackwardNumbers(a1, b1).debugDescription)
+
+let c1 = LinkedList()
+c1.addMultiple(5, 4, 3, 2, 1)
+let d1 = LinkedList()
+d1.addMultiple(9, 8, 7, 6, 5)
+// 12345 + 56789 = 69134 -> 4, 3, 1, 9, 6
+print(LinkedList.addBackwardNumbers(c1, d1).debugDescription)
+
+let e1 = LinkedList()
+let f1 = LinkedList()
+print(LinkedList.addBackwardNumbers(e1, f1).debugDescription)
+
+extension LinkedList {
+    static func addForwardNumbers(_ first: LinkedList, _ second: LinkedList) -> LinkedList {
+        guard !first.isEmpty, !second.isEmpty else {
+            return LinkedList()
+        }
+        
+        let result = first.forwardNumber() + second.forwardNumber()
+        let resultList = LinkedList()
+
+        String(describing: result).compactMap { Int(String($0)) }.forEach {
+            resultList.add($0)
+        }
+
+        return resultList
+    }
+
+    func forwardNumber() -> Int {
+        guard size > 0 else {
+            return 0
+        }
+
+        var multiplier = 1
+
+        for _ in 1..<size {
+            multiplier *= 10
+        }
+
+        var result = 0
+        var current = first
+
+        while current != nil {
+            result += (current?.item ?? 0) * multiplier
+            multiplier /= 10
+            current = current?.next
+        }
+
+        return result
+    }
+}
+
+let a2 = LinkedList()
+a2.addMultiple(1, 2, 3)
+let b2 = LinkedList()
+b2.addMultiple(4, 5, 6)
+// 123 + 456 = 579
+print(LinkedList.addForwardNumbers(a2, b2).debugDescription)
+
+let c2 = LinkedList()
+c2.addMultiple(1, 2, 3, 4, 5)
+let d2 = LinkedList()
+d2.addMultiple(5, 6, 7, 8, 9)
+// 12345 + 56789 = 69134
+print(LinkedList.addForwardNumbers(c2, d2).debugDescription)
+
+let e2 = LinkedList()
+let f2 = LinkedList()
+print(LinkedList.addForwardNumbers(e2, f2).debugDescription)
