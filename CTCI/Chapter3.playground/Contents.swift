@@ -57,20 +57,65 @@ class MultiStack {
     }
 }
 
-let multiStack = MultiStack(stackSize: 3)
-multiStack.push(1, to: .first)
-multiStack.push(2, to: .first)
-multiStack.push(3, to: .first)
-multiStack.push(1, to: .second)
-multiStack.push(2, to: .second)
-multiStack.push(3, to: .second)
-multiStack.push(1, to: .third)
-multiStack.push(2, to: .third)
-multiStack.push(3, to: .third)
-print(multiStack.desription)
-print(multiStack.pop(from: .first) ?? "nil")
-print(multiStack.pop(from: .second) ?? "nil")
-print(multiStack.pop(from: .first) ?? "nil")
-print(multiStack.pop(from: .second) ?? "nil")
-print(multiStack.pop(from: .first) ?? "nil")
-print(multiStack.pop(from: .first) ?? "nil")
+//let multiStack = MultiStack(stackSize: 3)
+//multiStack.push(1, to: .first)
+//multiStack.push(2, to: .first)
+//multiStack.push(3, to: .first)
+//multiStack.push(1, to: .second)
+//multiStack.push(2, to: .second)
+//multiStack.push(3, to: .second)
+//multiStack.push(1, to: .third)
+//multiStack.push(2, to: .third)
+//multiStack.push(3, to: .third)
+//print(multiStack.desription)
+//print(multiStack.pop(from: .first) ?? "nil")
+//print(multiStack.pop(from: .second) ?? "nil")
+//print(multiStack.pop(from: .first) ?? "nil")
+//print(multiStack.pop(from: .second) ?? "nil")
+//print(multiStack.pop(from: .first) ?? "nil")
+//print(multiStack.pop(from: .first) ?? "nil")
+
+// 3.2
+
+class Stack {
+    private var items = [Int]()
+    private var minItems = [Int]()
+
+    var isEmpty: Bool { items.isEmpty }
+    var min: Int? { minItems.last }
+    var size: Int { items.count }
+
+    func push(_ item: Int) {
+        items.append(item)
+
+        if let lastMin = minItems.last {
+            if lastMin > item {
+                minItems.append(item)
+            }
+        } else {
+            minItems.append(item)
+        }
+    }
+
+    func pop() -> Int? {
+        if isEmpty {
+            return nil
+        }
+
+        let last = items.removeLast()
+
+        if let lastMin = minItems.last, lastMin == last {
+            minItems.removeLast()
+        }
+
+        return last
+    }
+}
+
+let stack = Stack()
+stack.push(2)
+stack.push(1)
+stack.push(3)
+stack.push(0)
+stack.pop()
+print(stack.min ?? "none")
