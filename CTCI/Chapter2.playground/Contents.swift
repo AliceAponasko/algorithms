@@ -26,6 +26,7 @@ class LinkedList {
             result.append(" \(next.item)")
             current = next
         }
+
         return result
     }
 
@@ -244,6 +245,21 @@ extension LinkedList {
         return resultList
     }
 
+    static func addForwardNumbers(_ first: LinkedList, _ second: LinkedList) -> LinkedList {
+        guard !first.isEmpty, !second.isEmpty else {
+            return LinkedList()
+        }
+
+        let result = first.forwardNumber() + second.forwardNumber()
+        let resultList = LinkedList()
+
+        String(describing: result).compactMap { Int(String($0)) }.forEach {
+            resultList.add($0)
+        }
+
+        return resultList
+    }
+
     private func backwardNumber() -> Int {
         var multiplier = 1
         var result = 0
@@ -252,6 +268,29 @@ extension LinkedList {
         while current != nil {
             result += (current?.item ?? 0) * multiplier
             multiplier *= 10
+            current = current?.next
+        }
+
+        return result
+    }
+
+    private func forwardNumber() -> Int {
+        guard size > 0 else {
+            return 0
+        }
+
+        var multiplier = 1
+
+        for _ in 1..<size {
+            multiplier *= 10
+        }
+
+        var result = 0
+        var current = first
+
+        while current != nil {
+            result += (current?.item ?? 0) * multiplier
+            multiplier /= 10
             current = current?.next
         }
 
@@ -276,46 +315,6 @@ print(LinkedList.addBackwardNumbers(c1, d1).debugDescription)
 let e1 = LinkedList()
 let f1 = LinkedList()
 print(LinkedList.addBackwardNumbers(e1, f1).debugDescription)
-
-extension LinkedList {
-    static func addForwardNumbers(_ first: LinkedList, _ second: LinkedList) -> LinkedList {
-        guard !first.isEmpty, !second.isEmpty else {
-            return LinkedList()
-        }
-        
-        let result = first.forwardNumber() + second.forwardNumber()
-        let resultList = LinkedList()
-
-        String(describing: result).compactMap { Int(String($0)) }.forEach {
-            resultList.add($0)
-        }
-
-        return resultList
-    }
-
-    func forwardNumber() -> Int {
-        guard size > 0 else {
-            return 0
-        }
-
-        var multiplier = 1
-
-        for _ in 1..<size {
-            multiplier *= 10
-        }
-
-        var result = 0
-        var current = first
-
-        while current != nil {
-            result += (current?.item ?? 0) * multiplier
-            multiplier /= 10
-            current = current?.next
-        }
-
-        return result
-    }
-}
 
 let a2 = LinkedList()
 a2.addMultiple(1, 2, 3)
