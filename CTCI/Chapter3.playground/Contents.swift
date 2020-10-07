@@ -9,9 +9,9 @@ class MultiStack {
         case third
     }
 
-    var desription: String { storage.description }
+    var description: String { storage.description }
 
-    private var stackSize: Int
+    private let stackSize: Int
     private var storage: [Int]
     private var lastIndex = [Int]()
 
@@ -67,7 +67,7 @@ class MultiStack {
 //multiStack.push(1, to: .third)
 //multiStack.push(2, to: .third)
 //multiStack.push(3, to: .third)
-//print(multiStack.desription)
+//print(multiStack.description)
 //print(multiStack.pop(from: .first) ?? "nil")
 //print(multiStack.pop(from: .second) ?? "nil")
 //print(multiStack.pop(from: .first) ?? "nil")
@@ -81,6 +81,7 @@ class Stack {
     private var items = [Int]()
     private var minItems = [Int]()
 
+    var description: String { items.description }
     var isEmpty: Bool { items.isEmpty }
     var min: Int? { minItems.last }
     var size: Int { items.count }
@@ -112,10 +113,89 @@ class Stack {
     }
 }
 
-let stack = Stack()
-stack.push(2)
-stack.push(1)
-stack.push(3)
-stack.push(0)
-stack.pop()
-print(stack.min ?? "none")
+//let stack = Stack()
+//stack.push(2)
+//stack.push(1)
+//stack.push(3)
+//stack.push(0)
+//stack.pop()
+//print(stack.min ?? "none")
+
+// 3.3
+
+class SetOfStacks {
+    private let stackSize: Int
+    private var stacks = [Stack]()
+
+    var description: String {
+        var result = ""
+        stacks.forEach { result.append($0.description + "\n") }
+        return result
+    }
+    var count: Int { stacks.count }
+
+    init(stackSize: Int) {
+        self.stackSize = stackSize
+    }
+
+    func push(_ item: Int) {
+        guard let lastStack = stacks.last else {
+            createNewStack(with: item)
+            return
+        }
+
+        if isFull(stack: lastStack) {
+            createNewStack(with: item)
+        } else {
+            lastStack.push(item)
+        }
+    }
+
+    func pop() -> Int? {
+        guard let lastStack = stacks.last else {
+            return nil
+        }
+
+        let result = lastStack.pop()
+        if lastStack.isEmpty {
+            stacks.removeLast()
+        }
+        return result
+    }
+
+    func pop(at stackNumber: Int) -> Int? {
+        guard stacks.count >= stackNumber else {
+            return nil
+        }
+
+        let stack = stacks[stackNumber - 1]
+        let result = stack.pop()
+        if stack.isEmpty {
+            stacks.remove(at: stackNumber - 1)
+        } else {
+
+        }
+        return result
+    }
+
+    private func createNewStack(with item: Int) {
+        let stack = Stack()
+        stack.push(item)
+        stacks.append(stack)
+    }
+
+    private func isFull(stack: Stack) -> Bool {
+        stack.size == stackSize
+    }
+}
+
+let setOfStacks = SetOfStacks(stackSize: 1)
+setOfStacks.push(1)
+setOfStacks.push(2)
+setOfStacks.push(3)
+setOfStacks.push(4)
+print(setOfStacks.description)
+print(setOfStacks.pop(at: 1) ?? "none")
+print(setOfStacks.pop() ?? "none")
+print(setOfStacks.pop() ?? "none")
+print(setOfStacks.description)
