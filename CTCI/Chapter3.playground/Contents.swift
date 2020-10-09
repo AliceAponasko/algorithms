@@ -189,13 +189,52 @@ class SetOfStacks {
     }
 }
 
-let setOfStacks = SetOfStacks(stackSize: 1)
-setOfStacks.push(1)
-setOfStacks.push(2)
-setOfStacks.push(3)
-setOfStacks.push(4)
-print(setOfStacks.description)
-print(setOfStacks.pop(at: 1) ?? "none")
-print(setOfStacks.pop() ?? "none")
-print(setOfStacks.pop() ?? "none")
-print(setOfStacks.description)
+//let setOfStacks = SetOfStacks(stackSize: 1)
+//setOfStacks.push(1)
+//setOfStacks.push(2)
+//setOfStacks.push(3)
+//setOfStacks.push(4)
+//print(setOfStacks.description)
+//print(setOfStacks.pop(at: 1) ?? "none")
+//print(setOfStacks.pop() ?? "none")
+//print(setOfStacks.pop() ?? "none")
+//print(setOfStacks.description)
+
+// 3.5
+
+class MyQueue {
+    private var stack1 = Stack()
+    private var stack2 = Stack()
+
+    var size: Int { stack1.size + stack2.size }
+    var isEmpty: Bool { stack1.isEmpty && stack2.isEmpty }
+
+    func enqueue(_ item: Int) {
+        stack1.push(item)
+    }
+
+    func dequeue() -> Int? {
+        if stack2.isEmpty {
+            if stack1.isEmpty {
+                return nil
+            }
+
+            while let item = stack1.pop() {
+                stack2.push(item)
+            }
+        }
+
+        return stack2.pop()
+    }
+}
+
+let myQueue = MyQueue()
+myQueue.enqueue(1)
+myQueue.enqueue(2)
+print(myQueue.dequeue() ?? "none")
+print(myQueue.dequeue() ?? "none")
+myQueue.enqueue(3)
+myQueue.enqueue(4)
+print(myQueue.dequeue() ?? "none")
+myQueue.enqueue(5)
+print(myQueue.dequeue() ?? "none")
