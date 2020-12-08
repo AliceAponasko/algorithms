@@ -957,7 +957,7 @@ func findMySeat(_ input: [Int]) -> Int {
     let sortedSeats = input.sorted()
     for i in 1..<sortedSeats.count - 1 {
         let expectedSeat = (sortedSeats[i - 1] + sortedSeats[i + 1]) / 2
-        if expectedSeat != sortedSeats[i]{
+        if expectedSeat != sortedSeats[i] {
             return expectedSeat
         }
     }
