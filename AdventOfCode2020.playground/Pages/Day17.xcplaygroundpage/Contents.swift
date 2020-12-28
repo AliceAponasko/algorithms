@@ -66,7 +66,11 @@ enum Constant {
     }
 }
 
-struct Coordinate: Hashable {
+protocol CoordinateProvider: Hashable {
+    var neighbors: [Self] { get }
+}
+
+struct Coordinate: CoordinateProvider {
     let x: Int
     let y: Int
     let z: Int
@@ -82,43 +86,16 @@ struct Coordinate: Hashable {
                 }
             }
         }
-        neighbours.remove(at: neighbours.firstIndex(of: self)!)
+
+        if let indexOfSelf = neighbours.firstIndex(of: self) {
+            neighbours.remove(at: indexOfSelf)
+        }
+
         return neighbours
     }
 }
 
-func runCycles(
-    input: [Coordinate],
-    _ numberOfCycles: Int = Constant.Cycles.number
-) -> [Coordinate] {
-    var activeCoordinates = input
-
-    (0..<numberOfCycles).forEach { _ in
-        var nonUniquePossibleCoordinates = activeCoordinates
-        for neighbor in activeCoordinates.map(\.neighbors) {
-            nonUniquePossibleCoordinates.append(contentsOf: neighbor)
-        }
-
-        let possibleCoordinates = Set(nonUniquePossibleCoordinates)
-        let newActiveCoordinates = possibleCoordinates.filter { coordinate in
-            let activeNeighbors = coordinate.neighbors.filter { activeCoordinates.contains($0) }
-            if activeCoordinates.contains(coordinate) {
-                return activeNeighbors.count == Constant.State.Rules.activeRemainsActive.0 ||
-                    activeNeighbors.count == Constant.State.Rules.activeRemainsActive.1
-            } else {
-                return activeNeighbors.count == Constant.State.Rules.inactiveBecomesActive
-            }
-        }
-
-        activeCoordinates = Array(newActiveCoordinates)
-    }
-
-    return activeCoordinates
-}
-
-//print(runCycles(input: input.parseActiveCoordinatesFor3D()).count)
-
-struct Coordinate4D: Hashable {
+struct Coordinate4D: CoordinateProvider {
     let x: Int
     let y: Int
     let z: Int
@@ -137,24 +114,25 @@ struct Coordinate4D: Hashable {
                 }
             }
         }
-        neighbours.remove(at: neighbours.firstIndex(of: self)!)
+
+        if let indexOfSelf = neighbours.firstIndex(of: self) {
+            neighbours.remove(at: indexOfSelf)
+        }
+
         return neighbours
     }
 }
 
-func runCycles(
-    input: [Coordinate4D],
+func runCycles<T: CoordinateProvider>(
+    input: [T],
     _ numberOfCycles: Int = Constant.Cycles.number
-) -> [Coordinate4D] {
+) -> [T] {
     var activeCoordinates = input
 
     (0..<numberOfCycles).forEach { _ in
-        var nonUniquePossibleCoordinates = activeCoordinates
-        for neighbor in activeCoordinates.map(\.neighbors) {
-            nonUniquePossibleCoordinates.append(contentsOf: neighbor)
-        }
+        var possibleCoordinates = Set(activeCoordinates)
+        activeCoordinates.map(\.neighbors).forEach { $0.forEach { possibleCoordinates.insert($0) } }
 
-        let possibleCoordinates = Set(nonUniquePossibleCoordinates)
         let newActiveCoordinates = possibleCoordinates.filter { coordinate in
             let activeNeighbors = coordinate.neighbors.filter { activeCoordinates.contains($0) }
             if activeCoordinates.contains(coordinate) {
@@ -171,4 +149,5 @@ func runCycles(
     return activeCoordinates
 }
 
+print(runCycles(input: input.parseActiveCoordinatesFor3D()).count)
 print(runCycles(input: input.parseActiveCoordinatesFor4D()).count)
