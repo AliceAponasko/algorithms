@@ -2,114 +2,1775 @@ import Foundation
 
 let input =
 """
-Tile 2311:
-..##.#..#.
-##..#.....
-#...##..#.
-####.#...#
-##.##.###.
-##...#.###
-.#.#.#..##
-..#....#..
-###...#.#.
-..###..###
+Tile 3167:
+.##..#...#
+##.#......
+.##......#
+#.....#..#
+........##
+.#.......#
+###.#.....
+###.....##
+#..#....#.
+..####..##
 
-Tile 1951:
-#.##...##.
-#.####...#
-.....#..##
-#...######
-.##.#....#
-.###.#####
-###.##.##.
-.###....#.
-..#.#..#.#
-#...##.#..
+Tile 2411:
+...#####..
+#.#.......
+#..#..##.#
+####...###
+#..#....##
+#..##.#.##
+#...#.#..#
+.#..#..#..
+..#..##.##
+#....#.##.
 
-Tile 1171:
-####...##.
-#..##.#..#
-##.#..#.#.
-.###.####.
-..###.####
-.##....##.
-.#...####.
-#.##.####.
-####..#...
-.....##...
+Tile 2909:
+.#.#..##.#
+##...###..
+#.#..#...#
+........##
+#.#####.##
+#..##..#..
+...#.#.#.#
+.........#
+.##..#...#
+....#....#
 
-Tile 1427:
-###.##.#..
-.#..#.##..
-.#.##.#..#
-#.#.#.##.#
+Tile 1571:
+...#.#....
+...##...#.
+#...#.#..#
+#..#..#...
+#.......#.
+....#.##..
+...#.#.###
+#.#.#...##
+....#.....
+##..#..###
+
+Tile 1499:
+..##.#.##.
+##.....#..
+#....#.#.#
+#.#..#....
+#....###.#
+.#.#..#..#
+##..#....#
+.#..##....
+#.##..#..#
+..###....#
+
+Tile 3299:
 ....#...##
-...##..##.
-...#.#####
-.#.####.#.
-..#..###.#
-..##.#..#.
+.....#..##
+##........
+##..#.#.#.
+.....###.#
+#.....#...
+....##.###
+##..#.....
+#.........
+.##..#....
 
-Tile 1489:
-##.#.#....
-..##...#..
-.##..##...
-..#...#...
+Tile 1021:
+#.#.#...##
+#..##.#...
+##..##...#
+###..##.##
+..#..#....
+##....#..#
+........#.
+##.#.###.#
+.###..###.
+####.##...
+
+Tile 1231:
+..##..#.##
+...###..#.
+##........
+#....#....
+...#.##..#
+#..#..#..#
+###....###
+....#..#..
+.#......#.
+###.#.####
+
+Tile 2467:
+..##......
+##........
+.....#....
+###..#.#.#
+.#.......#
+.#....#...
+###.#.....
+#....#..#.
+..#.#.....
+#.##......
+
+Tile 3797:
+.#.####...
+........#.
+#....#..##
+#..#...#.#
+..#.......
+.##..#..##
+#.#....#.#
+..........
+....#.#.#.
+..##..###.
+
+Tile 3691:
+.###....##
+.....###.#
+##.#.#.#.#
+.....##...
+.#........
+#####...##
+##...#...#
+..#.......
+#........#
+..#...##..
+
+Tile 1669:
+###.#####.
+..#......#
+.#...##..#
+#.#......#
+...#.#...#
+##.......#
+#.#....##.
+..#......#
+.#..#.....
+##.###.#..
+
+Tile 3637:
+..#.......
+....###.##
+#..#.#..#.
+.....#...#
+#....#....
+###....###
+.#......##
+........#.
+#.........
+#..#.#...#
+
+Tile 3203:
+.##.####.#
+#..###....
+.....##..#
+#....#...#
+#.....##..
+#..##..#..
+....#.#...
+...###...#
+#.....#...
+...###.###
+
+Tile 2477:
+..####....
+#..#...#.#
+...#...###
+..#.#.#...
+#.##...##.
+#.##...##.
+##.....###
+###....#.#
+#.#..##...
+..#####.#.
+
+Tile 1657:
+#...#...##
+##..#..#.#
+#..#..####
+#.##......
+##..#....#
+#.##.....#
+#..###...#
+#......#..
+###....###
+.####.#...
+
+Tile 3083:
+...#.##.#.
+#.#......#
+..........
+..####.#..
+......#.#.
+....#...#.
+#...#..#..
+...#..#...
+....#.....
+##..#.....
+
+Tile 1409:
+..#.#.#.#.
+....#....#
+#.........
+#..#.##..#
+........##
+.....#...#
+.......##.
+......#...
+#.##....#.
+.#..#..##.
+
+Tile 3391:
+..#.#..###
+##........
+##..#.....
+........#.
+..#....#.#
+#.....#...
+..##.#..##
+#...##.#..
+...###.#..
+...##.##.#
+
+Tile 3491:
+#.#..###.#
+..####.#..
+......#.#.
+#....##.##
+.#..#....#
+....#....#
+###.#.....
+......##..
+..#....#..
+.......#..
+
+Tile 3331:
+####..##..
+##........
+...##.....
+#.#.......
+.#.......#
+....##..##
+#.#....#..
+#..##...#.
+###.#.....
+###.##..##
+
+Tile 2687:
+#....#..##
+###..##..#
+####..#.#.
+..###..###
+#.......##
+#.....#...
+#.##.....#
+.#....#.#.
+.#...##...
+#########.
+
+Tile 3769:
+####.###..
+.#.#.#.##.
+.#.......#
+..........
+#....#.###
+........##
+..........
+.....#..##
+#.#......#
+##.#..#..#
+
+Tile 2579:
+##......#.
+.##....###
+##........
+#.......#.
+#.#.#...##
+###...#.##
+..#.##....
+.##..#..##
+###...####
+.#...###..
+
+Tile 1607:
+.#.....#..
+.........#
+###.......
+.#...##..#
+...#.#....
+###......#
+..#....#..
+#.........
+....#..#.#
+.##.#.#...
+
+Tile 2383:
+..#.....##
+...#.#...#
+......##..
+.........#
+......#.#.
+#...##.##.
+#....#..#.
+.#..##.#..
+.........#
+...#.....#
+
+Tile 2153:
+.###..##.#
+##.#####.#
+#..#......
+#...##....
+......#...
+##...#.#..
+#.#..#....
+##.#.....#
+..#.###...
+.##.#.###.
+
+Tile 3761:
+#.#.......
+#..#...#.#
+......#...
+.........#
+...#....##
+#...#....#
+..#.#.....
+#.........
+##.##.###.
+##.#...#.#
+
+Tile 1097:
+..#..#.###
+...#.#....
+#..#.....#
+###.......
+#....#.#.#
+#..#..####
+#.....#..#
+.....#....
+..#..#....
+#..#.#..##
+
+Tile 2131:
+.#.....###
+#......#.#
+.##.......
+#.....#..#
+.......##.
+#...#.#...
+#.#.....##
+#..#.#....
+.#.##.##..
+.#.#....##
+
+Tile 2777:
+.######..#
+.##..#..##
+........##
+#.......#.
+###.#.##.#
+#..##..#.#
+..###....#
+##.#....##
+......##..
+#....##...
+
+Tile 3373:
+.##.#.....
+..#....###
+.##.......
+#.......##
+..#...#..#
+.#.#.##...
+.##.....##
+..#...#..#
+....#....#
+....##.#..
+
+Tile 2351:
+#...#..#.#
+#......###
+#...#.....
+.##..#...#
+#.##.#..#.
+.##...#...
+##...#...#
+..#.....##
+#.#.......
+.#...###..
+
+Tile 1871:
+###..#....
+#.........
+#......#..
+#...#.....
+#.#.......
+#......#..
+#..#.##.##
+.....#..##
+.#..#####.
+.##..####.
+
+Tile 1847:
+.#..#..#.#
+#....#.#..
+.#..#.#..#
+#...#....#
+...#.#....
+..#.#.#.##
+..........
+##......##
+......#..#
+##.##.#.##
+
+Tile 1283:
+###.....#.
+#..#.#...#
+#...#.....
+.....#.###
+#....##...
+##........
+##..#....#
+..........
+###..#..#.
+..#.#.#...
+
+Tile 2357:
+.......#.#
+..#.##....
+#....#....
+#........#
+#...#.....
+#....#....
+....#.....
+#...#.....
+..#..#.#..
+#....#.###
+
+Tile 1609:
+.###.##...
+#....#.#.#
+#..##.....
+##.#..##..
+.#.#......
+....#...##
+.....#..##
+#.........
+..........
+#.####..#.
+
+Tile 1601:
+#.#..###.#
+#.#...#...
+#..#.....#
+#.#..##.##
+#.#.#....#
+#.#..##...
+......#...
+#...##..##
+#....#.##.
+#.####.#..
+
+Tile 2393:
+##.##.#.##
+#...##.#..
+##......#.
+...#....#.
+.#.....#..
+##........
+#....#...#
+#.........
+...#...#..
+###..#....
+
+Tile 2677:
+#...#..###
+.........#
+####......
+....#.#...
+#.#......#
+#........#
+##........
+#........#
+#........#
+..####.#.#
+
+Tile 2557:
+......##.#
+##...###.#
+#.......##
+#.#...####
+.#..#..#..
+#.........
+.......#..
+#.##...###
+##.#....#.
+...#..#.##
+
+Tile 1913:
+..#..#..#.
+.#....#...
+..#......#
+.#..##...#
+..#..##...
+#.#.#.##..
+##.......#
+.#..#..#..
+........##
+#.#.##.#..
+
+Tile 1229:
+####..#.#.
+...#.....#
+...#.....#
+#.###....#
+#.....#..#
+#..#...#.#
+.#.#.##.##
+....##....
+..........
+.#.###.##.
+
+Tile 3067:
+#.#..##...
+#.##.#..##
+.#....###.
+#.........
+.#....##..
+......#...
+.#..#...#.
+.##.###..#
+##...###.#
+......#.#.
+
+Tile 1031:
+..###.##..
+.#.#..#.##
+#...#.#..#
+........#.
+..........
+#..##.#..#
+#..#......
+.##.#...##
+#.......##
+.#.###..#.
+
+Tile 2753:
+.##.##.#.#
+........##
+##...#....
+.......#.#
+##.#.....#
+#.........
+....#.....
+..###.#..#
+...###....
+.#.###....
+
+Tile 2437:
+..#.#.##..
+........##
+#.....####
+#.#.......
+#........#
+##..#....#
+..#......#
+.#.##....#
+#....#.#..
+###.......
+
+Tile 2399:
+.####.#..#
+#..#.#...#
+#....#...#
+##.#..##..
+##..#.....
+......#...
+###..##...
+..#..#.##.
+..#.##....
+.....##.#.
+
+Tile 3169:
+#...#.####
+..###.....
+.....#....
+#.####...#
+###.###...
+.#.###.#..
+#.......#.
+#..##...##
+.......##.
+#....#.##.
+
+Tile 1091:
+####.#.#.#
+.##...##..
+..#...#..#
+#........#
+#......##.
+......#.##
+..#.....##
+.....###.#
+#..#.....#
+.#..##.#..
+
+Tile 2083:
+#..#####..
+...#.#...#
+....#.#...
+..#.#...#.
+#..##..#..
+##.#......
+#....#....
+#.....#.##
+...#..#.#.
+##..#..###
+
+Tile 1999:
+..#..##...
+...#.....#
+#.#.#..#..
+#..#...##.
+..##.#...#
+##.....#..
+#..##...##
+....#.##..
+##.#..#.#.
+##..####.#
+
+Tile 1741:
+#.#..#.#.#
+#.....#...
+...###...#
+..##.#.#..
+.....##..#
+##..##.#..
+###.......
+#....#..#.
+#...##...#
+##.##..#.#
+
+Tile 2297:
+#...#...#.
+..#.......
+##...#...#
+##..##...#
+##.#.....#
+#..#.....#
+..........
+#.....#.##
+#...#.#..#
+#..##.##.#
+
+Tile 1721:
 #####...#.
-#..#.#.#.#
-...#.#.#..
-##.#...##.
-..##.##.##
-###.##.#..
+#.#.#....#
+..#.##.#.#
+#.........
+##.......#
+.........#
+.........#
+#......#.#
+....#.....
+.....###..
 
-Tile 2473:
-#....####.
-#..#.##...
-#.##..#...
-######.#.#
-.#...#.#.#
-.#########
-.###.#..#.
-########.#
+Tile 1873:
+.#.....#.#
+.##...#..#
+##........
+#.........
+........##
+.#........
+.....###.#
+.#.......#
+#.........
 ##...##.#.
-..###.#.#.
+
+Tile 1567:
+.#.#.##.#.
+..........
+..........
+##........
+.#..###..#
+#.........
+#....#....
+....##....
+.##.#....#
+##.##.####
+
+Tile 2251:
+##.###....
+...#.#...#
+#.#...#..#
+#........#
+...###.#.#
+...#...#.#
+..##......
+....#.....
+...#.....#
+#.#..#...#
+
+Tile 1399:
+#..#...##.
+..##......
+..........
+##.......#
+........#.
+.#........
+#.#..#.#.#
+#.#..#....
+#..####..#
+##..#.####
+
+Tile 2699:
+#.####.#.#
+#.#.......
+##...#.##.
+##...#..##
+#####.....
+...#.....#
+#.#.#...##
+#.....##.#
+..#..##.##
+##.##.#...
+
+Tile 2017:
+.....#..#.
+..#...#...
+.#..####..
+....#.#..#
+.....#....
+....#...##
+#........#
+..#.##...#
+##.##.#..#
+.##.#.####
+
+Tile 3917:
+.####..##.
+#.##..####
+#.....#.##
+......#...
+#.##.#....
+#..###..##
+....##.#.#
+........#.
+...##.##.#
+.#.##.##..
+
+Tile 3301:
+.#...#..##
+##..###...
+#.......##
+..####.#.#
+.#...#....
+#.......#.
+.#.......#
+..........
+#.........
+##..#####.
+
+Tile 2731:
+.#.##....#
+#...#.....
+##..##...#
+...#...#.#
+#.##.....#
+...#...#..
+.#........
+#...#..#..
+#...#...#.
+.#####.###
+
+Tile 3389:
+###.#.####
+#.##.#..#.
+.#...###.#
+#.#.....#.
+.....##...
+....#.#...
+.#.#.....#
+..#.##..##
+##....###.
+...##.#.##
+
+Tile 2837:
+#..#......
+....#.##..
+...#......
+#.#.#....#
+..###...##
+...#.....#
+....#.....
+.......###
+...#.##..#
+###...##..
+
+Tile 1511:
+....#.#..#
+..###.....
+#..##...#.
+#..#..#...
+.......#.#
+####..#...
+#..#..#...
+..#.#....#
+....#.#.##
+...###...#
+
+Tile 2069:
+..###..#.#
+.###.#..#.
+#.#.....##
+.....#....
+#.........
+#.#..#...#
+.#.##..#.#
+..##...#.#
+#####...##
+..#.##.###
+
+Tile 3181:
+#####.##.#
+#........#
+#.##......
+#.##....##
+#......#.#
+#....#..##
+###...#...
+...##..#.#
+#.......#.
+..#..#..##
+
+Tile 1627:
+.#.#....#.
+.###....##
+.##.#..#.#
+.#.....#..
+##..#....#
+##......#.
+#.#.......
+###...##.#
+###....##.
+.####..#..
 
 Tile 2971:
-..#.#....#
-#...###...
-#.#.###...
-##.##..#..
-.#####..##
-.#..####.#
-#..#.#..#.
-..####.###
-..#.#.###.
-...#.#.#.#
+...####.#.
+#..#.#....
+#...#.#.#.
+#..#...###
+.#........
+#.#.......
+..#.#.#...
+##...#....
+.#...#..#.
+..#.#.#.#.
 
-Tile 2729:
-...#.#.#.#
-####.#....
+Tile 3847:
+...######.
+.#..#.....
+.........#
+##.##..###
+...#..#.##
+..##....##
+###......#
+#####....#
+#.......##
+....#.#.##
+
+Tile 3463:
+.#####.#.#
+#..#..##.#
+......#...
+#.#...###.
+#...#..##.
+#....#..##
+.........#
+..#....#.#
+....#.#...
+#...#.#.#.
+
+Tile 1181:
+##.#..####
+..........
+....#.#...
+.#......#.
+#....##.#.
+.#.......#
+#...#.....
+#...###..#
+..#...#..#
+#.##....##
+
+Tile 3851:
+##.......#
+.....#..#.
+#........#
+#........#
+##.....#..
+#..#.....#
+#..#...#.#
+.....#....
+.#....##.#
+.###......
+
+Tile 3229:
+..#......#
+........##
+.##....#..
+.#....#.#.
+...#..#.##
+#...#...#.
+.#.##..#..
 ..#.#.....
-....#..#.#
-.##..##.#.
-.#.####...
-####.#.#..
-##.####...
-##..#.##..
-#.##...##.
+.#....##.#
+.#####....
 
-Tile 3079:
-#.#.#####.
-.#..######
+Tile 1061:
+..###....#
+.....##...
+......#..#
+#..#..#..#
+#...#.#...
+...#.##..#
+##..##.#..
+#........#
+.#..#....#
+#...##.#..
+
+Tile 2377:
+.#.....##.
+#........#
+.....#...#
+#..#..#...
+#....##..#
+..#......#
+#.......##
+##....#..#
+.........#
+#....##...
+
+Tile 3793:
+....#.#..#
+##.#...###
+#......#..
+#...#...#.
+...#..#...
+#...##...#
+....##...#
+#...#..###
+..........
+.##...###.
+
+Tile 3919:
+.#.##.....
+..##.#..#.
+#....###.#
+#..#...#..
+#..##..###
+....#..#..
+.#.......#
+..#.##....
+..#...#...
+.##..#..#.
+
+Tile 2389:
+#....##.#.
+...#....#.
+##.#.#....
+#.#...#..#
+...#.##..#
+...#.#...#
+.#....#...
+.###.....#
+.##..#...#
+#...###..#
+
+Tile 2689:
+#.#.#.#...
+#....#....
+#.....#..#
+.#..#....#
+.......#..
+......#.#.
+#...#..###
+...#..#...
+#.....#..#
+.####.##..
+
+Tile 1579:
+#..#...#..
+...#......
+#....#...#
+##..##...#
+#...#.....
+#....#....
+#...#.....
+....#....#
+#....#...#
+#...#.#...
+
+Tile 1747:
+..#####.##
+....#.....
+.......##.
+....#..##.
+###....#..
+.....#....
+#....##...
+...#.##..#
+#.#...#...
+#.###.##..
+
+Tile 2633:
+.#...####.
+....##...#
+.......#..
+##..#..#..
+#....###..
+#......#.#
+..........
+..#..#...#
+.....#..#.
+#...##....
+
+Tile 3581:
+####.###.#
+....#....#
+#...##...#
+....##...#
+#...##..#.
+..........
+#....#....
+.#..##...#
+#...###...
+##.#..##.#
+
+Tile 2879:
+....#.####
+....#...#.
+##.#..#..#
+#....#..##
+#.......#.
+.#.#####..
+....#....#
+#...##..##
+#..##....#
+..#.....#.
+
+Tile 1297:
+..#.######
+..#.....##
+..#.##.#..
+.#........
+..#....#.#
+#.........
+.##.......
+#..#..##..
+###.####..
+..##..#...
+
+Tile 1069:
+..#.#..#..
+...#...###
+#.#.....##
+.........#
 ..#.......
-######....
-####.#..#.
-.#...#.##.
-#.#####.##
-..#.###...
+#........#
+..#.#..#.#
+..#..##.##
+##....##..
+#..#...##.
+
+Tile 2857:
+##.##.....
+..#....##.
+....#.....
+#.##..#..#
+..##.##...
+###....###
+.#........
+#...#.....
+..#...#...
+.#.##.#..#
+
+Tile 2963:
+....###.##
+..#.#.....
+##.......#
+......####
+.........#
+..........
+...##...#.
+#....#....
+#..##.....
+.#..###..#
+
+Tile 2111:
+......#..#
+#..#.....#
+#....###..
+.#...###..
+...#.#....
+......#.##
+.#........
+#........#
+..#...####
+#.#.###..#
+
+Tile 3187:
+####.#.##.
+#..#...#.#
+..#.##...#
 ..#.......
+....#....#
+.#.##....#
+#.##.....#
+..##.....#
+....##...#
+#...#...#.
+
+Tile 3209:
+.....####.
+.##.#.#...
+...##.##..
+#..#...##.
+#....#....
+...#.....#
+#....#.#..
+#.#.....#.
+#.#..#....
+###..#.##.
+
+Tile 2243:
+#.....##..
+.#....###.
+#.......#.
+##..#..#..
+.###.#..##
+#.#...##..
+..#....#.#
+#..##....#
+###...#.##
+##....#.##
+
+Tile 3323:
+##.##..#.#
+#.#..#...#
+...#.###.#
+.....##.#.
+##.#.....#
+.....#.#..
+#.#.......
+#..#...#.#
+#.##......
+#.##..#.##
+
+Tile 3697:
+##.##.####
+.##......#
+#.#.....#.
+#.#...#..#
+#.........
+#.#.#....#
+#...#.#.##
+....#...#.
+.........#
+#...####..
+
+Tile 2767:
+##.####...
+.#.#.#..##
+...#....##
+#...#....#
+...#.#..#.
+##.#.....#
+.#..##....
+...###..##
+#..#...#.#
+##.#...#.#
+
+Tile 1307:
+......###.
+..#......#
+..#....#..
+#..#....#.
+#.#.#.#.##
+..#.#..###
+...#..#.#.
+#...#.#..#
+..#......#
+#..##.##..
+
+Tile 1117:
+.###.#...#
+##.......#
+##.......#
+###......#
+...####...
+#...##....
+#.##.#.#..
+...#....##
+..#.#....#
+#...#####.
+
+Tile 2713:
+..####.#..
+#.#.....##
+.#....##.#
+...#....##
+..#..#..##
+..........
+...#..#...
+....#.....
+......#..#
+..##..###.
+
+Tile 3449:
+##.......#
+#....#....
+..#..#.#.#
+.....#....
+.....#...#
+#..#..#..#
+..#.#....#
+#..#......
+....#.....
+.....#.#..
+
+Tile 3499:
+...#..#.#.
+#.......##
+..#.......
+...#..#...
+.....##..#
+......#..#
+#.........
+#..##.##..
+......#...
+.##...###.
+
+Tile 1861:
+####.###..
+....#..#.#
+..#..#....
+#.#.....#.
+#..##.#...
+#.##.#...#
+.....#.#.#
+##.##.....
+#.........
+#.#..#.#.#
+
+Tile 3833:
+.###...#.#
+#..#.....#
+.#........
+##.......#
+###.#....#
+.....#...#
+.....##..#
+.....#.#..
+##..####.#
+####...##.
+
+Tile 1237:
+##..#.##..
+..##.#.###
+##.#.....#
+###..#####
+.##....##.
+.#......##
+.....#...#
+#.##..##..
+.....#.##.
+..#..#.##.
+
+Tile 2003:
+.####.....
+.##.......
+#..#..#...
+#.##...#.#
+..#...#...
+#..#.#..##
+#..#.#...#
+#.......#.
+..##......
+##........
+
+Tile 2113:
+.#.#.#....
+#...#.#..#
+.........#
+.#..#..#..
+#....###.#
+#.#.......
+#........#
+..#.....##
+........#.
+#..#.##..#
+
+Tile 2447:
+#.##.####.
+#...#.....
+#.......#.
+.....#..##
+..###...#.
+#..##.##.#
+.#........
+#....#..#.
+#..#..#...
+.####..#..
+
+Tile 2347:
+.###.#..#.
+.......#..
+..#.......
+..#.###.##
+#...##....
+....#.....
+#....#.#.#
+...#.....#
+#........#
+...#....#.
+
+Tile 1447:
+..#..#.###
+..##.#...#
+#####...#.
+#...##..##
+...#......
+.#.#####..
+....#.....
+.....#...#
+#......#..
+#...#.###.
+
+Tile 3671:
+....##..#.
+##.#..#.##
+.##..#....
+###...####
+..#....##.
+#...#....#
+.........#
+..#......#
+..#...#...
+###.#.###.
+
+Tile 2851:
+.#..####..
+.....#....
+.#.#......
+.#.##.#...
+#........#
+.#..###...
+#.#...##..
+#.#.#.....
+.#........
+##...##..#
+
+Tile 2161:
+#.###.#.##
+......#.#.
+.#...##.##
+#.#....###
+#.#...#..#
+....#..#.#
+.#........
+...#..#.#.
+......####
+.###..####
+
+Tile 3469:
+##.#.###.#
+#...#.##.#
+.......##.
+#......###
+##.#......
+#.#..#..##
+..#.#.....
+..##....##
+..#.#...##
+#....##..#
+
+Tile 2293:
+#.###...##
+.##....##.
+##..##.#.#
+....#.....
+#.#..#....
+##.#..#..#
+...###....
+....#.....
+#..#..#...
+.#.######.
+
+Tile 3907:
+...#.#.##.
+....#....#
+...#.##...
+#..#...#.#
+.....#...#
+#...#...##
+.##....#.#
+.#.....#.#
+#..#...###
+.##..#...#
+
+Tile 2143:
+.###....##
+#.#.#...##
+.....#.#..
+......#.##
+...#..#.##
+###..#...#
+......##..
+.#...#..##
+.....#...#
+.##..#####
+
+Tile 1583:
+...###.##.
+..#......#
+##..#..##.
+#.##...##.
+#.#....#.#
+..........
+#.#......#
+.#.##..##.
+#.####.##.
+#...###.##
+
+Tile 2141:
+#....####.
+.###.#.#.#
+.........#
+..##.##..#
+..#..#..#.
+##..#.##.#
+#.....#.##
+..#..##...
+..#####...
+##...###.#
+
+Tile 3511:
+.#..##.#.#
+..#.#..##.
+#.##.##...
+..##.##...
+#..#.##..#
+.##....###
+.....#...#
+........##
+#........#
+####......
+
+Tile 2789:
+#.#..#....
+#.#..#....
+#.#...##..
+..#..##...
+#.##.#...#
+.#.....#..
+####.##...
+.....##..#
+#.....#.#.
+#.#.##.#..
+
+Tile 1051:
+.....#.#..
+##........
+......#...
+##......##
+#........#
+#....#.#.#
+#.#..#...#
+#..#....##
+#.#.....#.
+.#..###...
+
+Tile 1151:
+.....##.##
+.#..#...##
+.#.......#
+..##...#.#
+#......###
+#....#.##.
+#..#......
+#.#.....##
+.##..#..##
+.#.#...###
+
+Tile 3527:
+##..##.#..
+.#..#....#
+.....#.#..
+..###....#
+###......#
+#....##..#
+...##...#.
+##..#.#.##
+...#.##..#
+.###.#..#.
+
+Tile 1223:
+#####..##.
+...##.#...
+...##...#.
+....#.#.##
+...#......
+##.#..#..#
+.##.###...
+#..#.#.#..
+..##..##.#
+.#.##.#.##
+
+Tile 3109:
+#.##..#...
+###...##..
+...#.#...#
+#......##.
+###.......
+#.....#.#.
+#....#....
+#..#.##..#
+....#....#
+.#....#...
+
+Tile 1787:
+........##
+....#.####
+#...#..#.#
+#....##..#
+.#.##.#..#
+.#.#..#..#
+......##.#
+#..#.#.#.#
+......###.
+#.#..#.#..
+
+Tile 2833:
+.#..#.##..
+#.#.#....#
+#.........
+...#.#..##
+.......##.
+###.....##
+..##.....#
+#.#....#..
+.#......##
+.#.#.####.
+
+Tile 1783:
+#.#..#.#..
+...#...#.#
+##....##..
+##...#..##
+......#...
+#.....##..
+.....#...#
+.#..#.##.#
+.#.......#
+..#..###.#
+
+Tile 2711:
+#.#.###.##
+......#.##
+..##......
+#.#.....#.
+.#.#.....#
+.....#....
+#..##...#.
+###..#.##.
+#..##.....
+#####...##
+
+Tile 2203:
+#.####...#
+......#..#
+#..#......
+..####...#
+.#...##.##
+#........#
+#.#...##.#
+##........
+###..####.
+##....#.#.
+
+Tile 1901:
+.##...##.#
+....##....
+#..#.#...#
+..#..#...#
+..........
+#.##.#....
+##........
+...#......
+.....#..##
+..##...###
+
+Tile 2591:
+.....#..#.
+.......##.
+...#.#....
+#........#
+##.#.#..#.
+.#.......#
+##...#...#
+.....#...#
+#.##......
+###.##.##.
+
+Tile 2371:
+##.####.#.
+#.#..#....
+.##..###..
+..#..#....
+...#.#....
+...#..#...
+......#.##
+.#.......#
+#....#.#.#
+...#####.#
+
+Tile 1907:
 ..#.###...
+...#..####
+#..#.#..##
+#....##.#.
+.#.#.....#
+...#....##
+.....##...
+#.....#..#
+..#.#..#.#
+.##.####.#
+
+Tile 1531:
+###.#.#.#.
+#.........
+.....#..#.
+..#.#.#..#
+#.#.#.#.##
+......##..
+..........
+##........
+#.#......#
+.#.#....#.
+
+Tile 1619:
+..#..#....
+..#.#..#.#
+#.#.#.....
+#....#....
+..#......#
+#####....#
+##.......#
+#...#.....
+#.....#...
+.#..#####.
+
+Tile 3541:
+#.#....##.
+#...#..#..
+...#..#.##
+#.####...#
+..#.#....#
+.#........
+.#.......#
+#....###..
+...###...#
+.####....#
+
+Tile 1523:
+#.#...##..
+#..#..#.#.
+...#..#...
+..#.#.#...
+.....#....
+###.#....#
+#.......##
+.......###
+........#.
+#.#.#.#.##
+
+Tile 1777:
+#.#..#.###
+..#..#..#.
+##..####.#
+#...##...#
+#...#...#.
+........##
+......##..
+...##...##
+.##.#...#.
+...##.#...
+
+Tile 3019:
+.#..####..
+....#....#
+#....#....
+..##.....#
+##.......#
+#.#...#.#.
+#..#....##
+#....#..##
+....#...#.
+#......##.
+
+Tile 2053:
+.##..#....
+.....#....
+#.#..##...
+....#.#.#.
+#..#.#..##
+#.#.......
+#.#.##.#..
+#.#..#....
+##...##..#
+..##.###..
+
+
 """
+
+let seaMonsterInput =
+"""
+..................#.
+#....##....##....###
+.#..#..#..#..#..#...
+"""
+
+typealias Image = [[TileValue]]
+
+struct SeaMonster {
+    static let height = 3
+    static let width = 20
+    static let numberOfPounds = 15
+
+    static func find(in image: Image) -> Int {
+        var result = 0
+        for i in 0..<(image.count - SeaMonster.height) {
+            for j in (SeaMonster.width - 2)..<(image.count - 1) {
+                if image[i][j] == .pound,
+                   image[i + 1][j + 1] == .pound,
+                   image[i + 1][j] == .pound,
+                   image[i + 1][j - 1] == .pound,
+                   image[i + 1][j - 6] == .pound,
+                   image[i + 1][j - 7] == .pound,
+                   image[i + 1][j - 12] == .pound,
+                   image[i + 2][j - 2] == .pound,
+                   image[i + 2][j - 5] == .pound,
+                   image[i + 2][j - 8] == .pound,
+                   image[i + 2][j - 11] == .pound,
+                   image[i + 2][j - 14] == .pound,
+                   image[i + 2][j - 17] == .pound {
+                    result += 1
+                }
+            }
+        }
+        return result
+    }
+}
 
 enum TileValue: String {
     case dot = "."
@@ -117,8 +1778,14 @@ enum TileValue: String {
 }
 
 struct Tile: Equatable {
+    enum Constant {
+        enum Parse {
+            static let prefix = "Tile "
+        }
+    }
+
     let id: Int
-    let values: [[TileValue]]
+    let values: Image
 
     var debugDescription: String {
         var result = ""
@@ -141,12 +1808,25 @@ struct Tile: Equatable {
     var left: [TileValue] { values.map { $0.first ?? .dot } }
     var right: [TileValue] { values.map { $0.last ?? .dot } }
 
-    func flip() -> Tile {
-        Tile(id: id, values: values.flip())
+    var possibleStates: [Tile] {
+        [
+            self,
+            rotated(),
+            rotated().rotated(),
+            rotated().rotated().rotated(),
+            flipped(),
+            flipped().rotated(),
+            flipped().rotated().rotated(),
+            flipped().rotated().rotated().rotated()
+        ]
     }
 
-    func rotate() -> Tile {
-        Tile(id: id, values: values.rotate())
+    func flipped() -> Tile {
+        Tile(id: id, values: values.flipped())
+    }
+
+    func rotated() -> Tile {
+        Tile(id: id, values: values.rotated())
     }
 
     func isNear(tile: Tile) -> Bool {
@@ -156,7 +1836,7 @@ struct Tile: Equatable {
 
 extension Array where Element == [TileValue] {
     // https://gist.github.com/BrettBukowski/4b4e55ce42865106c2c0
-    func rotate() -> Self {
+    func rotated() -> Self {
         var result = self
         (0..<(count / 2)).forEach { layer in
             let first = layer
@@ -179,16 +1859,14 @@ extension Array where Element == [TileValue] {
         return result
     }
 
-    func flip() -> Self {
+    func flipped() -> Self {
         var result = self
         (0..<self.count).forEach { i in
             result[i] = result[i].reversed()
         }
         return result
     }
-}
 
-extension Array where Element == [TileValue] {
     var debugDescription: String {
         var result = ""
         forEach { tiles in
@@ -199,27 +1877,54 @@ extension Array where Element == [TileValue] {
         }
         return result
     }
+
+    var possibleStates: [Image] {
+        [
+            self,
+            rotated(),
+            rotated().rotated(),
+            rotated().rotated().rotated(),
+            flipped(),
+            flipped().rotated(),
+            flipped().rotated().rotated(),
+            flipped().rotated().rotated().rotated()
+        ]
+    }
+}
+
+extension Array where Element == TileValue {
+    var debugDescription: String { reduce("") { $0 + $1.rawValue } }
 }
 
 extension Array where Element == [Tile] {
-    var debugDescription: String {
-        var result = ""
-        forEach { tiles in
-            tiles.forEach { tile in
-                result.append(tile.debugDescription + "\n")
+    var debugDescription: String { reduce("") { $0 + $1.debugDescription } }
+
+    var size: Int { first?.first?.values.count ?? 0 }
+
+    func filterUnique(from nonUnique: [Tile]) -> [Tile] {
+        nonUnique.filter { !reduce([Tile](), +).map(\.id).contains($0.id) }
+    }
+
+    mutating func rotateFirstLine180() {
+        var newLine = [Tile]()
+        forEach { line in
+            line.forEach { tile in
+                newLine.append(tile.rotated().rotated().flipped())
             }
         }
-        return result
+        self[0] = newLine
     }
 }
 
 extension Array where Element == Tile {
-    var debugDescription: String {
-        var result = ""
-        forEach { tile in
-            result.append(tile.debugDescription + "\n")
+    var debugDescription: String { reduce("") { $0 + $1.debugDescription + "\n" } }
+
+    mutating func remove(tile: Tile) {
+        guard let index = map(\.id).firstIndex(of: tile.id) else {
+            fatalError("Cannot find \(tile.id)")
         }
-        return result
+
+        remove(at: index)
     }
 }
 
@@ -228,12 +1933,12 @@ func parse(_ input: String) -> [Tile] {
 
     input.components(separatedBy: "\n\n").forEach { fullTile in
         var tileID = 0
-        var tileValues = [[TileValue]]()
+        var tileValues = Image()
 
         fullTile.components(separatedBy: .newlines).forEach { line in
-            if line.hasPrefix("Tile ") {
+            if line.hasPrefix(Tile.Constant.Parse.prefix) {
                 var idLine = line
-                idLine.removeFirst("Tile ".count)
+                idLine.removeFirst(Tile.Constant.Parse.prefix.count)
                 idLine.removeLast()
                 guard let id = Int(idLine) else { return }
                 tileID = id
@@ -256,135 +1961,52 @@ func findCorners(tiles: [Tile]) -> [Tile] {
     tiles.filter { tile in tiles.filter { $0.isNear(tile: tile) }.count == 3 }
 }
 
-//print(findCorners(tiles: parse(input)).map(\.id).reduce(1, *))
+// print(findCorners(tiles: parse(input)).map(\.id).reduce(1, *))
 
-func arrange(tiles: [Tile]) -> [[Tile]] {
-    var image = [[Tile]]()
-    var uniqueTiles = tiles
+func findFirstLine(possibleStarts: [Tile], tiles: [Tile], imageSize: Int) -> [Tile] {
+    var firstTileIndex = 0
+    var possibleFirstLine = [Tile]()
 
-    let imageSize = Int(sqrt(Double(uniqueTiles.count)))
-    guard let firstTile = findCorners(tiles: uniqueTiles).first else { return [] }
+    while possibleFirstLine.count != imageSize &&
+            firstTileIndex < possibleStarts.count {
+        possibleFirstLine = populateLine(
+            lineStart: possibleStarts[firstTileIndex],
+            from: tiles,
+            imageSize: imageSize)
+        firstTileIndex += 1
+    }
 
-    image.append(populateLine(lineStart: firstTile, from: uniqueTiles, imageSize: imageSize))
-    uniqueTiles = uniqueTiles.filter { !image.reduce([Tile](), +).contains($0) }
+    return possibleFirstLine
+}
 
+func findNextLineStart(topTile: Tile, tiles: [Tile]) -> Tile? {
     var possibleNextLineStart: Tile?
-    for i in 0..<uniqueTiles.count {
-        if image[0][0].bottom == uniqueTiles[i].top {
-            possibleNextLineStart = uniqueTiles[i]
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].flip().top {
-            possibleNextLineStart = uniqueTiles[i].flip()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].rotate().top {
-            possibleNextLineStart = uniqueTiles[i].rotate()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].rotate().rotate().top {
-            possibleNextLineStart = uniqueTiles[i].rotate().rotate()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].rotate().rotate().rotate().top {
-            possibleNextLineStart = uniqueTiles[i].rotate().rotate().rotate()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].flip().rotate().top {
-            possibleNextLineStart = uniqueTiles[i].flip().rotate()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].flip().rotate().rotate().top {
-            possibleNextLineStart = uniqueTiles[i].flip().rotate().rotate()
-            break
-        } else if image[0][0].bottom == uniqueTiles[i].flip().rotate().rotate().rotate().top {
-            possibleNextLineStart = uniqueTiles[i].flip().rotate().rotate().rotate()
+
+    for i in 0..<tiles.count {
+        if let tile = tiles[i].possibleStates.filter({ topTile.bottom == $0.top }).first {
+            possibleNextLineStart = tile
             break
         }
     }
 
-    if possibleNextLineStart == nil {
-        var newLine = [Tile]()
-        image.forEach { line in
-            line.forEach { tile in
-                newLine.append(tile.rotate().rotate().flip())
-            }
-        }
-        image[0] = newLine
-    }
-
-    var definedLineIndex = 1
-    while definedLineIndex < imageSize {
-        // find the first element of the line
-        let previousLine = image[definedLineIndex - 1]
-        let topTile = previousLine[0]
-
-        var possibleLineStart: Tile?
-        for i in 0..<uniqueTiles.count {
-            if topTile.bottom == uniqueTiles[i].top {
-                possibleLineStart = uniqueTiles[i]
-                break
-            } else if topTile.bottom == uniqueTiles[i].flip().top {
-                possibleLineStart = uniqueTiles[i].flip()
-                break
-            } else if topTile.bottom == uniqueTiles[i].rotate().top {
-                possibleLineStart = uniqueTiles[i].rotate()
-                break
-            } else if topTile.bottom == uniqueTiles[i].rotate().rotate().top {
-                possibleLineStart = uniqueTiles[i].rotate().rotate()
-                break
-            } else if topTile.bottom == uniqueTiles[i].rotate().rotate().rotate().top {
-                possibleLineStart = uniqueTiles[i].rotate().rotate().rotate()
-                break
-            } else if topTile.bottom == uniqueTiles[i].flip().rotate().top {
-                possibleLineStart = uniqueTiles[i].flip().rotate()
-                break
-            } else if topTile.bottom == uniqueTiles[i].flip().rotate().rotate().top {
-                possibleLineStart = uniqueTiles[i].flip().rotate().rotate()
-                break
-            } else if topTile.bottom == uniqueTiles[i].flip().rotate().rotate().rotate().top {
-                possibleLineStart = uniqueTiles[i].flip().rotate().rotate().rotate()
-                break
-            }
-        }
-
-        guard let lineStart = possibleLineStart else { fatalError("Cannot find line start") }
-        image.append(populateLine(lineStart: lineStart, from: uniqueTiles, imageSize: imageSize))
-        uniqueTiles = uniqueTiles.filter { !image.reduce([Tile](), +).contains($0) }
-        definedLineIndex += 1
-    }
-
-    return image
+    return possibleNextLineStart
 }
 
 func populateLine(lineStart: Tile, from tiles: [Tile], imageSize: Int) -> [Tile] {
     var uniqueTiles = tiles
-    var line = [lineStart]
-    var definedTileIndex = 1
-    var i = 0
     var currentTile = lineStart
+    var line = [currentTile]
+    uniqueTiles.remove(tile: lineStart)
 
-    while definedTileIndex < imageSize {
-        var alignedTile: Tile?
-        if currentTile.right == uniqueTiles[i].left {
-            alignedTile = uniqueTiles[i]
-        } else if currentTile.right == uniqueTiles[i].flip().left {
-            alignedTile = uniqueTiles[i].flip()
-        } else if currentTile.right == uniqueTiles[i].rotate().left {
-            alignedTile = uniqueTiles[i].rotate()
-        } else if currentTile.right == uniqueTiles[i].rotate().rotate().left {
-            alignedTile = uniqueTiles[i].rotate().rotate()
-        } else if currentTile.right == uniqueTiles[i].rotate().rotate().rotate().left {
-            alignedTile = uniqueTiles[i].rotate().rotate().rotate()
-        } else if currentTile.right == uniqueTiles[i].flip().rotate().left {
-            alignedTile = uniqueTiles[i].flip().rotate()
-        } else if currentTile.right == uniqueTiles[i].flip().rotate().rotate().left {
-            alignedTile = uniqueTiles[i].flip().rotate().rotate()
-        } else if currentTile.right == uniqueTiles[i].flip().rotate().rotate().rotate().left {
-            alignedTile = uniqueTiles[i].flip().rotate().rotate().rotate()
-        }
+    var foundTileIndex = 1
+    var i = 0
 
-        if let foundAlignedTile = alignedTile {
-            currentTile = foundAlignedTile
+    while foundTileIndex < imageSize && i < uniqueTiles.count {
+        if let alignedTile = uniqueTiles[i].possibleStates.filter({ currentTile.right == $0.left }).first {
+            currentTile = alignedTile
             line.append(currentTile)
-            if let index = uniqueTiles.firstIndex(of: uniqueTiles[i]) {
-                uniqueTiles.remove(at: index)
-            }
-            definedTileIndex += 1
+            uniqueTiles.remove(tile: alignedTile)
+            foundTileIndex += 1
             i = 0
         } else {
             i += 1
@@ -394,10 +2016,60 @@ func populateLine(lineStart: Tile, from tiles: [Tile], imageSize: Int) -> [Tile]
     return line
 }
 
-func constructImage(from arrangedTiles: [[Tile]]) -> [[TileValue]] {
+func arrange(tiles: [Tile]) -> [[Tile]] {
+    var image = [[Tile]]()
+    var uniqueTiles = tiles
+
+    let imageSize = Int(sqrt(Double(uniqueTiles.count)))
+    let corners = findCorners(tiles: uniqueTiles)
+
+    image.append(
+        findFirstLine(
+            possibleStarts: corners,
+            tiles: uniqueTiles,
+            imageSize: imageSize
+        )
+    )
+    uniqueTiles = image.filterUnique(from: uniqueTiles)
+
+    // if cannot find the next line, our first line needs to be rotated
+    // as we probably found the bottom line
+    if findNextLineStart(topTile: image[0][0], tiles: uniqueTiles) == nil {
+        image.rotateFirstLine180()
+    }
+
+    // 1 since we already know the first line
+    var foundLineIndex = 1
+    while foundLineIndex < imageSize {
+        // find the first element of the line
+        guard let lineStart = findNextLineStart(
+                topTile: image[foundLineIndex - 1][0],
+                tiles: uniqueTiles)
+        else {
+            fatalError("Cannot find line start")
+        }
+
+        image.append(
+            populateLine(
+                lineStart: lineStart,
+                from: uniqueTiles,
+                imageSize: imageSize
+            )
+        )
+
+        uniqueTiles = image.filterUnique(from: uniqueTiles)
+        foundLineIndex += 1
+    }
+
+    return image
+}
+
+func constructImage(from arrangedTiles: [[Tile]]) -> Image {
+    // strip borders
     var noBordersTiles = arrangedTiles
     for i in 0..<arrangedTiles.count {
         let tileRow = arrangedTiles[i]
+
         for j in 0..<tileRow.count {
             var noBordersValues = tileRow[j].values
             noBordersValues = noBordersValues.dropFirst().dropLast().map { $0.dropFirst().dropLast() }
@@ -405,12 +2077,20 @@ func constructImage(from arrangedTiles: [[Tile]]) -> [[TileValue]] {
         }
     }
 
-    let tileSize = noBordersTiles.first!.first!.values.count
+    let tileSize = noBordersTiles.size
     let newImageSize = noBordersTiles.count * tileSize
-    var image = Array(repeating: Array(repeating: TileValue.dot, count: newImageSize), count: newImageSize)
+    var image = Array(
+        repeating: Array(
+            repeating: TileValue.dot,
+            count: newImageSize
+        ),
+        count: newImageSize
+    )
 
     var horizontalOffset = 0
     var verticalOffset = 0
+
+    // join all together
     for i in 0..<noBordersTiles.count {
         let lineOfTiles = noBordersTiles[i]
 
@@ -435,11 +2115,17 @@ func constructImage(from arrangedTiles: [[Tile]]) -> [[TileValue]] {
     return image
 }
 
-print(constructImage(from: arrange(tiles: parse(input))).debugDescription)
+func findSeaMonsters(in image: Image) -> Int {
+    var max = 0
+    image.possibleStates.forEach { newImage in
+        let newMax = SeaMonster.find(in: newImage)
+        if max < newMax { max = newMax }
+    }
+    return max
+}
 
-let seaMonster =
-"""
-..................#.
-#....##....##....###
-.#..#..#..#..#..#...
-"""
+let image = constructImage(from: arrange(tiles: parse(input)))
+let seaMonstersNumber = findSeaMonsters(in: image) * SeaMonster.numberOfPounds
+let imageNumber = image.reduce(0) { $0 + $1.filter { $0 == .pound }.count }
+
+print(imageNumber - seaMonstersNumber)
