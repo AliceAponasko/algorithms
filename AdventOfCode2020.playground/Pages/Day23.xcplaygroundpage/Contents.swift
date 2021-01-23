@@ -2,7 +2,7 @@ import Foundation
 
 let input =
 """
-389125467
+925176834
 """
 
 func parse(_ input: String) -> [Int] {
@@ -39,7 +39,7 @@ func playCrabCups(_ input: [Int], repeat numberOfRepeats: Int = 100) -> [Int] {
     return cups
 }
 
-//print(playCrabCups(parse(input)))
+print(playCrabCups(parse(input)))
 
 class Node {
     let value: Int
@@ -50,8 +50,9 @@ class Node {
     }
 }
 
+// run in Xcode project only, playground runs out of memory
 func scaleThisShit(_ input: [Int], repeat numberOfRepeats: Int = 10_000_000) -> (Int, Int) {
-    var cups = input.map { Node(value: $0) }
+    let cups = input.map { Node(value: $0) }
     cups.enumerated().forEach { index, node in
         node.next = cups[cups.count == index + 1 ? 0 : index + 1]
     }
@@ -71,7 +72,7 @@ func scaleThisShit(_ input: [Int], repeat numberOfRepeats: Int = 10_000_000) -> 
         nodes[value] = node
     }
 
-    let max = cups.map(\.value).max()!
+    let max = nodes.map(\.value).map(\.value).max()!
     currentCup.next = cups.first!
     currentCup = cups.first!
 
