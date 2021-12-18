@@ -2006,11 +2006,12 @@ extension Array where Element == Int {
     func countIncreases(windowSize: Int = 1) -> Int {
         let windows = input
             .enumerated()
-            .reduce(into: [[Int]]()) {
-                guard $1.offset <= (count - windowSize) else { return }
-                $0.append(Array(self[$1.offset..<($1.offset + windowSize)]))
+            .filter { $0.offset <= (count - windowSize) }
+            .reduce(into: [Int]()) {
+                $0.append(
+                    Array(self[$1.offset..<($1.offset + windowSize)]).reduce(0, +)
+                )
             }
-            .map { $0.reduce(0, +) }
 
         return zip(windows.dropFirst(), windows).map(-).filter { $0 > 0 }.count
     }
